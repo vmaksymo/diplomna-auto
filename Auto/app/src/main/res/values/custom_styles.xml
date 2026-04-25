@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="circular">
+        <item name="cornerSize">50%</item>
+    </style>
+    <style name="corners_5percents">
+        <item name="cornerSize">5%</item>
+    </style>
+    <style name="corners_10percents">
+        <item name="cornerSize">10%</item>
+    </style>
+    <style name="AddCarPopUp" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+
+
+</resources>

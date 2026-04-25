@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardViewCarDetails"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:background="@color/transparent_tinted"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="8dp"
+    app:cardUseCompatPadding="true"
+    tools:context=".AddCar">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:elevation="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="20dp"
+                android:paddingStart="115dp"
+                android:paddingEnd="62dp"
+                android:text="Car Details"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/grey_1"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/imageButtonCarDetailsClose"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/close_icon"
+                android:scaleType="fitXY"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="30dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="15dp"
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/imageViewCarDetailsImageOfCar"
+                        android:layout_width="240dp"
+                        android:layout_height="140dp"
+                        android:padding="5dp"
+
+                        android:background="@color/white"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/default_photo_for_car"
+                        app:shapeAppearance="@style/corners_10percents"
+                        app:strokeColor="@color/grey_1"
+                        app:strokeWidth="4dp" />
+
+                    <ImageButton
+                        android:id="@+id/imageButtonCarDetailRemovePhoto"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_gravity="top|right"
+                        android:layout_marginBottom="5dp"
+                        android:background="@drawable/remove_icon"
+                        android:scaleType="fitXY"
+                        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"/>
+                </FrameLayout>
+
+                <ImageButton
+                    android:id="@+id/imageButtonCarDetailsAddPhoto"
+                    android:layout_width="25dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:background="@color/transparent"
+                    android:src="@drawable/ic_add_photo1"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck">
+
+                </ImageButton>
+
+                <View
+                    android:id="@+id/viewCarDetailsDummySpacer"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="bottom"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Model:"
+                    android:paddingEnd="6dp"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/editTextCarDetailsModelOfCar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:textSize="18sp"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:paddingEnd="6dp"
+                    android:text="Plate Number:"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/editTextCarDetailsPlateNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:maxLength="8"
+                    android:textSize="18sp"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Ending date:"
+                android:textSize="18sp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:paddingEnd="3dp"
+                    android:text="Insurance:"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/editTextCarDetailsInsurance"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:inputType="date"
+                    android:textSize="18sp"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:paddingEnd="3dp"
+                    android:text="Vignette:"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/editTextCarDetailsVignette"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="17dp"
+                    android:inputType="date"
+                    android:textSize="18sp"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:paddingEnd="3dp"
+                    android:text="Inspection:"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/editTextCarDetailsTech"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="date"
+                    android:textSize="18sp"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/buttonCarDetailsUpdateCar"
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/car_details_update_car_button"
+                        android:text="Update Car"
+                        android:layout_gravity="start"
+                        android:layout_weight="1"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+
+                    <View
+                        android:id="@+id/viewCarDetailsSpacer1"
+                        android:layout_width="10dp"
+                        android:layout_height="match_parent"/>
+
+                    <Button
+                        android:id="@+id/buttonCarDetailsDeleteCar"
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/car_details_delete_car_button"
+                        android:text="Delete Car"
+                        android:layout_gravity="end"
+                        android:layout_weight="1"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                            android:id="@+id/buttonCarDetailsDiscard"
+                            android:layout_width="130dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/car_details_discard_changes_button"
+                            android:text="Discard"
+                            android:layout_gravity="start"
+                            android:layout_weight="1"
+                            android:textColor="@color/white"
+                            android:textSize="18sp" />
+
+                    <View
+                        android:id="@+id/viewCarDetailsSpacer2"
+                        android:layout_width="10dp"
+                        android:layout_height="match_parent"/>
+
+                    <Button
+                        android:id="@+id/buttonCarDetailsUpdate"
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/car_details_update_button"
+                        android:text="Update"
+                        android:layout_gravity="end"
+                        android:layout_weight="1"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+
+                    <Button
+                        android:id="@+id/buttonCarDetailsConfirmDeletion"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_weight="1"
+                        android:background="@drawable/car_details_delete_car_button"
+                        android:text="Confirm Deletion"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textViewCarDatailsDebug"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="TextView" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

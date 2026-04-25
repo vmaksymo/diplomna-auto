@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="transparent">#00000000</color>
+    <color name="transparent_tinted">#99000000</color>
+    <color name="grey_1">#FF555555</color>
+    <color name="grey_stroke">#FFCCCCCC</color>
+    <color name="grey_divider">#FFBBBBBB</color>
+    <color name="blue_main">#FF487CFF</color>
+    <color name="blue_main_trans">#CC487CFF</color>
+    <color name="blue_main_ultra_trans">#0F487CFF</color>
+    <color name="grey_profile_picture_default">#FFAAAAAA</color>
+    <color name="orange_main">#F0E27B27</color>
+    <color name="red_delete">#F0D86464</color>
+    <color name="red_discard">#90D86464</color>
+    <color name="green_update">#F06CB24B</color>
+</resources>

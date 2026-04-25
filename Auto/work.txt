@@ -1,0 +1,138 @@
+[17.09.2025]
+- Working on "Car Details" pop up;
+	- Fixed "UPDATE DETAILS" issues;
+		- The View that was spacing the "DISCARD" and "UPDATE" buttons was not declared and because I did not set it's visibility to Gone, it was braking the design. After finding out that, I declared it and added it alongsite the buttons.
+
+	- Fixed EditTexts being too gray when .setEnabled(false);
+		- When I set it to not be enabled, the black text became gray and was a bit unreadable. Added if-else clause in the function where I .setEnabled() all EditText, so that I could manually set a color for each case.
+
+	- Made the image that is being set in the CardAdapter to be parsed into CarDetails class;
+		- In the Adapter, I made a function which takes the data from the ImageView and stores it into a string so that I could then parse a string into the Details class. In this function there is an if-else in cases where the image is being set by the local resources, or from the database.
+
+	- Added functionality to the "DISCARD" and "UPDATE" buttons;
+		- When the CarDetails pop up, the initial information that is being parsed into the class gets stored into local variables. When you try to change the data, if you press "DISCARD", it loads the information from the local variables. But when you press "UPDATE", it updates the local variables with the new data from the EditTexts. This is done in a function based on a flag. Because there is still no functionality for uploading that data, if you close the pop up and open it again, it will load the initial data that is being taken from the database and parsed into the class.
+
+	- Added the add_photo button to be visible or not based on "UPDATE DETAILS"
+
+
+//FOR TOMORROW
+- To fix all insurance, vignette and inspection fields (in Android Studio, PHP and Database); //DONE
+- To add the functionality for add_photo button; //DONE
+- To add the functionality for uploading the new data into the database; //ALMOST DONE
+- To allign the image and the add_photo button so that the image stays stationary independant from the button; //DONE
+--------------------------------------------------------------------------------------------------
+
+[18.09.2025]
+- Fixing all insurance, vignette and inspection fields (removed _from and _to)
+	- Android Studio
+		- CardAdapter, CarDetails, car_details, Car, MainActivity, AddCar, add_car;
+	- VS Code (PHP)
+		- DataBase, insertprofileimage;
+	- MySQL (Database)
+
+- Fixing the names of the php files.
+	- addcarforuser.php -> add_car_for_user.php (the same for the other files);
+
+- Adding the localhost as a variable in the classes;
+
+- Working on "Car Details" pop up;
+	- Allign the image and the add_photo button so that the image stays stationary independant from the button;
+		- Fixing its width to 25dp and creating a dummy View box with 25dp width to take its place when the button is removed because the whole LinearLayout's width is dynamic and has gravity centered horizontally.
+	- Adding the functionality for add_photo button;
+		- Changed the parent of the CarDetails class because Activity has less functionalities that AppCompatActivity. This was needed to use the ActivityResultLauncher because Activity doesn't support registerForActivityResult().
+		- Adding the ActivityResaultLauncher into a function which is called in onCreate in order to initialize the launcher before using it.
+	- Made the image with 10% corner radius and added a dark gray stroke; also made the image cetnerCrop so that it would fit withouth streching it no matter what the input resoultion is.
+	- Added the functionality for uploading the new data into the database;
+		- Created a new php function to update the data but it adds a new car instead of updating. Debugging is needed.
+		- Added a separate function in the class to just update the data into the database.
+
+- Adding functionality for the image to be parsed through the MySQL all the way into the CarDetails
+	- In CardAdapter added if clause whether the there is an image from MySQL and if not, to set a default one. Made a function to decode the image and to set it so that this function could be called when there is an image.
+
+
+//FOR TOMORROW
+- To fix the problem with updating the data from the CarDetails pop up. //DONE
+--------------------------------------------------------------------------------------------------
+
+[19.09.2025]
+- Uploaded to GoogleDrive a backup of the project at 12:12;
+
+- To fix the problem with updating the data from the CarDetails pop up;
+
+- Fixed the ImageView in the card_view_of_car;
+	- Changed ImageView into ShapableImageView;
+	- Created custom style with 5% corner radius;
+	- Fixed the width to match_parent;
+	- Set scaleType to centerCrop;
+	- Added 2dp stroke with custom color;
+- Fixed the CardView design;
+	- Removed some fixed layout_sizes;
+	- Added cardUseCompatPadding and cardPreventCornerOverlap in order to get the shadow from the elevation to not be cut;
+	- Removed the ImageView draw line and replaced it with a View with hight 1dp and solid color as a background;
+
+- Redoing the logic for parsing the data to CarDetails;
+	- Previously the data was parsed through an intent from the CardAdapter class but it was crashing when trying to parse the image string due to it being too large even though it was compressed.
+	- Getting the data straight from the database;
+		- Cannot straight get the data and try to use it since there is delay from the server. Had do redo it with a ViewModel because it's securer and a better way. Detailed explanation why (https://chatgpt.com/c/68cd4eba-430c-8320-bfdf-f83455572978#:~:text=Can%20you%20explain,in%20Android%20apps.)
+	
+- Created a CarViewModel class;
+	- This could be used as a global class with which to get/set data from and to the database. This cleans the code since I will not be needed to specifically create such functions in each class.
+	- Created get_data()
+	- Created update_data()
+		- Had to update also the current image since putting empty string, the function fails with NullPointerException. That is why all fields must contain valid data.
+
+- Uploaded to GoogleDrive a backup of the project at 18:58;
+--------------------------------------------------------------------------------------------------
+
+[23.09.2025]
+- Updated the AddCar class with CarViewModel functionality
+
+- Adding defines() function to define the different buttons, edit texts ect.
+	- AddCar, CarDetails
+
+- Added separate function in php to insert images in order to bypass the Null exception and not have to upload the default photo.
+
+
+- Adding a remove image button for the car_details;
+	- Adding a FrameLayout in order to overlap the components;
+
+- Added remove_photo button for the car_details;
+--------------------------------------------------------------------------------------------------
+
+[24.09.2025]
+- Fixed issues with retreieving empty image from MySQL;
+	- In CardAdapter added setting the default photo when the string_image is empty;
+
+--------------------------------------------------------------------------------------------------
+
+[25.09.2025]
+- Learning about LiveData<T> and all its forms and trying to fix data flow problem in the project.
+
+- Fixed the issue with retrieving the platenumbers from CarViewModel in MainActivity when created a direct function in PHP with which to take the cars that are tied to the user and thus used only one function from CarViewModel to parse the list into the recycler view in MainActivity.
+
+--------------------------------------------------------------------------------------------------
+
+[30.09.2025]
+- Fix callendars showing following month instead of the current one;
+
+--------------------------------------------------------------------------------------------------
+
+[01.10.2025]
+- Added functionality to toggle on/off buttons in CarDetails in default_buttons_visibility();
+- Added a "DELETE CAR" button to car_details;
+- Added delete_data() function to CarViewModel class and functionality in php to delete from 2 tables where the platenumber matches;
+
+--------------------------------------------------------------------------------------------------
+
+[16.10.2025]
+- Fixed issues with "DELETE CAR" button layout in car_details;
+- Started debugging MainActivity issue with not refreshing data on change. Added a Log message to track what is going on. After a change, the livedata carlist doesn't update.
+
+
+--------------------------------------------------------------------------------------------------
+
+//TO DO LIST
+- To fix issues with MainActivity not showing livedata after updating occurs;
+- To create ViewModel class for the user information so that it could be possible to update/delete the user information.
+	
+
