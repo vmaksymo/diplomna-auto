@@ -17,6 +17,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.work.Data;
+import androidx.work.ExistingPeriodicWorkPolicy;
 import androidx.work.OneTimeWorkRequest;
 import androidx.work.PeriodicWorkRequest;
 import androidx.work.WorkManager;
@@ -214,11 +215,15 @@ public class MainActivity extends AppCompatActivity {
         mainHandler.post(()->{
             Log.i("TEST","Starting PeriodicWorkRequest");
             PeriodicWorkRequest periodicRequest = new PeriodicWorkRequest.Builder(
-                    NotificationWorker.class, 10, TimeUnit.SECONDS)
+                    NotificationWorker.class, 15, TimeUnit.MINUTES)
                     .setInputData(input_username)
                     .build();
 
-            WorkManager.getInstance(this).enqueue(periodicRequest);
+            WorkManager.getInstance(this).enqueueUniquePeriodicWork(
+                    "NotificationWork",
+                    ExistingPeriodicWorkPolicy.KEEP, // or REPLACE
+                    periodicRequest
+            );
         });
         //*/
 
